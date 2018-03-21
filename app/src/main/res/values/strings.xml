@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Easy Go ~</string>
+    <string name="title_MembershipActivity">Membership</string>
+    <string name="title_LoginDialogActivity">Login</string>
+    <string name="title_CreateAccountActivity">Create Account</string>
+    <string name="col_Price">Price</string>
+    <string name="col_Id">ID</string>
+    <string name="col_Name">Name</string>
+    <string name="col_PhoneNo">Phone No</string>
+    <string name="col_Address">Address</string>
+    <string name="col_Description">Description</string>
+    <string name="cartAdd">Add to Favorite</string>
+    <string name="cartRemove">Remove</string>
+    <string name="cartContents">Cart contents</string>
+    <string name="cartEmpty">Cart is empty</string>
+    <string name="btCheckout">Checkout</string>
+    <string name="btClearCart">Clear Cart</string>
+    <string name="msg_ClearCart">Clear cart?</string>
+    <string name="msg_InvalidUserOrPassword">Invalid user name or password</string>
+    <string name="title_orderInfo">Order Information</string>
+    <string name="title_orderDetails">Order details</string>
+    <string name="col_OrderId">ID</string>
+    <string name="col_OrderDate">Date</string>
+    <string name="col_OrderCustomer">Customer</string>
+    <string name="col_OrderSum">Sum</string>
+    <string name="text_btConfirm">Confirm</string>
+    <string name="text_btYes">Yes</string>
+    <string name="text_btNo">No</string>
+    <string name="text_tvUser">User name</string>
+    <string name="text_tvPassword">Password</string>
+    <string name="hint_etUser">User name</string>
+    <string name="hint_etPassword">password</string>
+    <string name="text_cbSavePassword">Save password</string>
+    <string name="hint_etSearch">Search location</string>
+    <string name="text_btSearch">Search</string>
+    <string name="text_ProductQty">Qty</string>
+    <string name="msg_NotUploadWithoutPicture">Not upload without picture</string>
+    <string name="msg_NoCameraApp">No camera app found</string>
+    <string-array name="cartProductQty">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+
+    <string name="title_change_url_activity">ChangeUrlActivity</string>
+    <string name="text_tvUrl">Server URL</string>
+    <string name="text_btSubmit">Submit</string>
+    <string name="text_btLogin">Login</string>
+    <string name="text_btCart">Shopping Cart</string>
+    <string name="text_btProfile">Update Profile</string>
+    <string name="text_btLogout">Logout</string>
+    <string name="text_All">All</string>
+    <string name="text_ByDate">Search by Date</string>
+    <string name="title_OrderHistoryActivity">Your Orders</string>
+    <string name="text_StartDate">Start Date</string>
+    <string name="text_EndDate">End Date</string>
+    <string name="msg_EndDateNotLessThanStartDate">End date should not be less than start date</string>
+    <string name="text_OrderId">Order ID</string>
+    <string name="text_Sum">Sum</string>
+    <string name="text_Customer">Customer</string>
+    <string name="text_Date">Date</string>
+    <string name="msg_NoOrderFound">No order found</string>
+    <string name="hint_etUrl">Server URL</string>
+    <string name="btOrderHistory">Your Orders</string>
+    <string name="title_order_activity">Order</string>
+    <string name="text_UserId">User ID</string>
+    <string name="text_etUserPassword">Password</string>
+    <string name="text_etConfirmPassword">Confirm Password</string>
+    <string name="text_etName">Name</string>
+    <string name="text_etEmail">Email</string>
+    <string name="text_etPhone">Phone</string>
+    <string name="text_etAddress">Address</string>
+    <string name="msg_UserIdExist">User ID exists</string>
+    <string name="msg_AccountNotCreatedDueToErrorHappen">account not created due to error happens</string>
+    <string name="msg_InputEmpty">cannot be empty</string>
+    <string name="msg_ConfirmPasswordNotSameAsPassword">Confirm password not same as password</string>
+    <string name="msg_FailCreateAccount">Fail to create an account</string>
+    <string name="msg_SuccessfullyCreateAccount">Create an account successfully</string>
+    <string name="msg_NumbersOfOrders">Numbers of orders:</string>
+    <string name="text_btNewAccount">Create a new account</string>
+    <string name="msg_NoProfileFound">No profile found</string>
+    <string name="msg_FailUpdateProfile">Fail to update profile</string>
+    <string name="msg_SuccessfullyUpdateProfile">Update profile successfully</string>
+    <string name="title_UpdateProfileActivity">Update Profile</string>
+    <string name="msg_NoNewsFound">No news found</string>
+    <string name="title_NewsActivity">News</string>
+    <string name="title_SpotActivity">Spots</string>
+    <string name="msg_NoSpotsFound">No spots found</string>
+    <string name="msg_ClickAgain">Please click the item again</string>
+    <string name="msg_NoProductsFound">No products found</string>
+    <string name="msg_MapNotDisplayed">Map cannot be displayed</string>
+    <string name="msg_ProductsNotFound">Products not found</string>
+    <string name="title_SpotDetailActivity">Spot Details</string>
+    <string name="title_ProductActivity">Products</string>
+    <string name="title_ProductDetailActivity">Product Details</string>
+    <string name="msg_NewQty">New Qty:</string>
+    <string name="msg_NoNetwork">No network connection available</string>
+    <string name="msg_FailCreateOrder">Fail to create the order</string>
+
+</resources>

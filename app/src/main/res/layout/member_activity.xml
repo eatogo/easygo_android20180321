@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MemberActivity"
+    android:background="@drawable/member"
+    >
+    <ImageView
+        android:id="@+id/ivPicture"
+        android:layout_width="179dp"
+        android:layout_height="142dp"
+        android:layout_marginLeft="118dp"
+        android:layout_marginTop="95dp"
+        />
+    <TextView
+        android:id="@+id/tvUserId"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="110dp"
+        android:lines="5"
+        android:textSize="16sp" />
+    <CalendarView
+        android:id="@+id/simpleCalendarView"
+        android:layout_width="300dp"
+        android:layout_height="290dp"
+        android:layout_marginLeft="60dp"
+        android:background="#FFFF"
+        />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginLeft="50dp">
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:id="@+id/btLogout"
+            android:onClick="onLogoutClick"
+            android:background="@null"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="9dp"/>
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:id="@+id/btUpdateProfile"
+            android:onClick="onMemberUpdateClick"
+            android:background="@null"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="9dp"/>
+
+
+
+    </LinearLayout>
+</LinearLayout>

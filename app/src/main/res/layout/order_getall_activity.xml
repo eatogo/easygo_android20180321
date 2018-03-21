@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <!--<RadioGroup-->
+            <!--android:id="@+id/rgSearch"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/rbAll"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="true"-->
+                <!--android:text="@string/text_All" />-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/rbByDate"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:checked="false"-->
+                <!--android:onClick="onByDateClick"-->
+                <!--android:text="@string/text_ByDate" />-->
+        <!--</RadioGroup>-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <TextView
+                android:id="@+id/tvStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:text="@string/text_StartDate" />
+
+            <TextView
+                android:id="@+id/tvEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btStartDate"
+                android:layout_marginTop="27dp"
+                android:layout_toLeftOf="@+id/btStartDate"
+                android:layout_toStartOf="@+id/btStartDate"
+                android:text="@string/text_EndDate" />
+
+            <Button
+                android:id="@+id/btStartDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tvStartDate"
+                android:layout_alignBottom="@+id/tvStartDate"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/tvStartDate"
+                android:layout_toRightOf="@+id/tvStartDate"
+                android:onClick="onDateClick"
+                android:text="@string/text_StartDate" />
+
+            <Button
+                android:id="@+id/btEndDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tvEndDate"
+                android:layout_alignBottom="@+id/tvEndDate"
+                android:layout_alignEnd="@+id/btStartDate"
+                android:layout_alignLeft="@+id/btStartDate"
+                android:layout_alignRight="@+id/btStartDate"
+                android:layout_alignStart="@+id/btStartDate"
+                android:onClick="onDateClick"
+                android:text="@string/text_EndDate" />
+
+            <Button
+                android:id="@+id/btSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/btEndDate"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignTop="@+id/tvStartDate"
+                android:onClick="onSearchClick"
+                android:text="@string/text_btSearch" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvOrders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

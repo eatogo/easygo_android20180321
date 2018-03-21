@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="idv.ron.easygo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAt-__4p85-2wvhgb3UEiGxCKwGumHls_0" />
+
+        <activity
+            android:name="idv.ron.easygo.main.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".product.ProductGetAllActivity"
+            android:label="@string/title_ProductActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="idv.ron.easygo.product.ProductDetailActivity"
+            android:label="@string/title_ProductDetailActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name="idv.ron.easygo.order.OrderActivity"
+            android:label="@string/title_order_activity"
+            android:launchMode="singleTask" />
+
+        <!-- 被利用的Activity不可設為singleTask，否則resultCode為RESULT_CANCELED -->
+        <activity
+            android:name=".membership.MemberLoginActivity"
+            android:label="@string/title_LoginDialogActivity" />
+        <activity
+            android:name=".membership.MemberActivity"
+            android:label="@string/title_MembershipActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".membership.MemberCreateActivity"
+            android:label="@string/title_CreateAccountActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".membership.MemberUpdateActivity"
+            android:label="@string/title_UpdateProfileActivity" />
+        <activity
+            android:name=".membership.CreateCheckActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".membership.MemberTakepictureActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name="idv.ron.easygo.favorite.FavoriteActivity"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".order.OrderGetAllActivity"
+            android:label="@string/title_OrderHistoryActivity"
+            android:launchMode="singleTask" />
+    </application>
+
+</manifest>
