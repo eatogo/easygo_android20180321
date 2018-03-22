@@ -22,6 +22,7 @@ public class FavoriteInsertTask extends AsyncTask<Object, Integer, Order> {
     private final static String TAG = "FavoriteInsertTask";
     private final static String ACTION = "Favoriteinsert";
 
+
     @Override
     protected Order doInBackground(Object... params) {
         Gson gson = new Gson();
@@ -45,7 +46,7 @@ public class FavoriteInsertTask extends AsyncTask<Object, Integer, Order> {
     }
 
     private String getRemoteData(String url, String jsonOut) throws IOException {
-        StringBuilder text = new StringBuilder();
+        StringBuilder jsonIn = new StringBuilder();
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setDoInput(true); // allow inputs
         connection.setDoOutput(true); // allow outputs
@@ -63,13 +64,13 @@ public class FavoriteInsertTask extends AsyncTask<Object, Integer, Order> {
             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
             while ((line = br.readLine()) != null) {
-                text.append(line);
+                jsonIn.append(line);
             }
         } else {
             Log.d(TAG, "response code: " + responseCode);
         }
         connection.disconnect();
-        Log.d(TAG, "jsonIn: " + text);
-        return text.toString();
+        Log.d(TAG, "jsonIn: " + jsonIn);
+        return jsonIn.toString();
     }
 }

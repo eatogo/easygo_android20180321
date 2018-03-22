@@ -121,7 +121,6 @@ public class ProductGetAllActivity extends AppCompatActivity {
                         String userId = pref.getString("user_cellphone", "");
                         for(OrderProduct product:FAVORITE) {
                             Integer food_id = product.getFood_id();
-
                             Order order = null;
                             try {
                                 order = new FavoriteInsertTask().execute(url, userId, food_id).get();
