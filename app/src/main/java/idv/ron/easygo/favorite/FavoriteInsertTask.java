@@ -27,7 +27,7 @@ public class FavoriteInsertTask extends AsyncTask<Object, Integer, Order> {
         Gson gson = new Gson();
         String url = params[0].toString();
         String user_cellphone = params[1].toString();
-        Integer favorite_food = Integer.valueOf(params[2].toString());
+        String favorite_food = params[2].toString();
 //        List<OrderProduct> cart = (List<OrderProduct>) params[2];
         String jsonIn;
         JsonObject jsonObject = new JsonObject();

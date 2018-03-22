@@ -99,6 +99,7 @@ public class ProductGetAllActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder viewHolder, int position) {
+
             final Product product = products.get(position);
             String url = Common.URL + "ProductServlet";
             int id = product.getFood_id();
@@ -114,31 +115,32 @@ public class ProductGetAllActivity extends AppCompatActivity {
                     int index = FAVORITE.indexOf(orderProduct);
                     if (index == -1) {
                         FAVORITE.add(orderProduct);
-
                         String url = Common.URL + "favoriteSysyem";
                         SharedPreferences pref = getSharedPreferences(Common.PREF_FILE,
                                 MODE_PRIVATE);
-                        String userId = pref.getString("userId", "");
-                        OrderProduct food_id = FAVORITE.get(0);
-                        Order order = null;
-                        try {
-                            order = new FavoriteInsertTask().execute(url, userId, food_id).get();
-                        } catch (Exception e) {
-                            Log.e(TAG, e.toString());
-                        }
+                        String userId = pref.getString("user_cellphone", "");
+                        for(OrderProduct product:FAVORITE) {
+                            Integer food_id = product.getFood_id();
 
-                        if (order == null) {
-                            Common.showToast(ProductGetAllActivity.this, R.string.msg_FailCreateOrder);
-                        } else {
-                            FAVORITE.clear();
+                            Order order = null;
+                            try {
+                                order = new FavoriteInsertTask().execute(url, userId, food_id).get();
+                            } catch (Exception e) {
+                                Log.e(TAG, e.toString());
+                            }
+
+                            if (order == null) {
+                                Common.showToast(ProductGetAllActivity.this, R.string.msg_FailCreateOrder);
+                            } else {
+                                FAVORITE.clear();
 //                        Bundle bundle = new Bundle();
 //                        bundle.putSerializable("order", order);
 //                        Intent intentOrder = new Intent(FavoriteActivity.this,
 //                                OrderActivity.class);
 //                        intentOrder.putExtras(bundle);
 //                        startActivity(intentOrder);
+                            }
                         }
-
 
                     } else {
                         FAVORITE.get(index).setQuantity(orderProduct.getQuantity() + 1);
@@ -184,6 +186,7 @@ public class ProductGetAllActivity extends AppCompatActivity {
 
 
     }
+
 
     // 依據CATEGORIES產生對應MenuItem
     @Override
