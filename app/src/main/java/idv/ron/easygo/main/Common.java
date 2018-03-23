@@ -15,6 +15,7 @@ import java.util.List;
 
 import idv.ron.easygo.R;
 
+import idv.ron.easygo.cart.CartActivity;
 import idv.ron.easygo.favorite.FavoriteActivity;
 import idv.ron.easygo.membership.MemberActivity;
 ;
@@ -34,13 +35,16 @@ public class Common {
 
     // 要讓商品在購物車內順序能夠一定，且使用RecyclerView顯示時需要一定順序，List較佳
     public static List<OrderProduct> FAVORITE = new ArrayList<>();
+    public static List<OrderProduct> CART = new ArrayList<>();
 
     // 功能分類
     public final static Category[] CATEGORIES = {
             new Category(0, "User", R.drawable.user, MemberActivity.class),
+            new Category(1, "Products", R.drawable.product, ProductGetAllActivity.class),
             new Category(2, "favorite", R.drawable.ic_favorite_black_24dp, FavoriteActivity.class),
-            new Category(3, "order", R.drawable.setting, OrderGetAllActivity.class),
-            new Category(1, "Products", R.drawable.product, ProductGetAllActivity.class)};
+            new Category(3, "Shopping cart", R.drawable.cart_empty, CartActivity.class),
+            new Category(4, "order", R.drawable.setting, OrderGetAllActivity.class)};
+
 
 
     // check if the device connect to the network

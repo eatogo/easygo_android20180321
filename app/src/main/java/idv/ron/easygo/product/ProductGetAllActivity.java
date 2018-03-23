@@ -26,6 +26,8 @@ import idv.ron.easygo.main.Category;
 import idv.ron.easygo.main.Common;
 import idv.ron.easygo.order.Order;
 import idv.ron.easygo.order.OrderProduct;
+
+import static idv.ron.easygo.main.Common.CART;
 import static idv.ron.easygo.main.Common.CATEGORIES;
 import static idv.ron.easygo.main.Common.FAVORITE;
 
@@ -74,13 +76,14 @@ public class ProductGetAllActivity extends AppCompatActivity {
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
-            ImageView ivProduct, ivAdd;
+            ImageView ivProduct, ivAddFav, ivAdd;
             TextView tvName, tvPrice;
 
             ViewHolder(View itemView) {
                 super(itemView);
                 ivProduct = (ImageView) itemView.findViewById(R.id.ivProduct);
                 ivAdd = (ImageView) itemView.findViewById(R.id.ivAdd);
+                ivAddFav = (ImageView) itemView.findViewById(R.id.ivAddFav);
                 tvName = (TextView) itemView.findViewById(R.id.tvName);
                 tvPrice = (TextView) itemView.findViewById(R.id.tvPrice);
             }
@@ -107,8 +110,8 @@ public class ProductGetAllActivity extends AppCompatActivity {
             new ProductGetImageTask(viewHolder.ivProduct).execute(url, id, imageSize);
             viewHolder.tvName.setText(product.getFood_name());
             viewHolder.tvPrice.setText(String.valueOf(product.getFood_price()));
-            viewHolder.ivAdd.setImageResource(R.drawable.ic_favorite_border_black_24dp);
-            viewHolder.ivAdd.setOnClickListener(new OnClickListener() {
+            viewHolder.ivAddFav.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+            viewHolder.ivAddFav.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     OrderProduct orderProduct = new OrderProduct(product, 1);
@@ -167,11 +170,47 @@ public class ProductGetAllActivity extends AppCompatActivity {
 //                                        }
 //                                    }).show();
 
-                    viewHolder.ivAdd.setImageResource(R.drawable.ic_favorite_black_24dp);
+                    viewHolder.ivAddFav.setImageResource(R.drawable.ic_favorite_black_24dp);
                     Toast.makeText(ProductGetAllActivity.this,""+product.getFood_name()+"was added to favorites", Toast.LENGTH_SHORT).show();
 
                 }
             });
+
+            viewHolder.ivAdd.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    OrderProduct orderProduct = new OrderProduct(product, 1);
+                    int index = CART.indexOf(orderProduct);
+                    if (index == -1) {
+                        CART.add(orderProduct);
+                    } else {
+                        CART.get(index).setQuantity(orderProduct.getQuantity() + 1);
+                    }
+                    StringBuilder sb = new StringBuilder();
+                    for (OrderProduct oProduct : CART) {
+                        String text = "\n-" + oProduct.getFood_name() + " x "
+                                + oProduct.getQuantity();
+                        sb.append(text);
+                    }
+                    String message = getString(R.string.cartContents) + " " + sb.toString();
+                    new AlertDialog.Builder(context)
+                            .setIcon(R.drawable.cart)
+                            .setTitle(
+                                    getString(R.string.cartAdd) + "\n「"
+                                            + product.getFood_name() + "」")
+                            .setMessage(message)
+                            .setNeutralButton(R.string.text_btConfirm,
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(
+                                                DialogInterface dialog,
+                                                int which) {
+                                            dialog.cancel();
+                                        }
+                                    }).show();
+                }
+            });
+
             viewHolder.itemView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {

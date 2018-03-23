@@ -2,9 +2,7 @@ package idv.ron.easygo.favorite;
 
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,10 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +25,9 @@ import idv.ron.easygo.R;
 import idv.ron.easygo.main.Category;
 import idv.ron.easygo.main.Common;
 import idv.ron.easygo.order.Order;
-import idv.ron.easygo.order.OrderInsertTask;
 import idv.ron.easygo.order.OrderProduct;
-import idv.ron.easygo.product.ProductGetAllActivity;
+import idv.ron.easygo.product.Product;
+
 import idv.ron.easygo.product.ProductGetImageTask;
 import static idv.ron.easygo.main.Common.FAVORITE;
 import static idv.ron.easygo.main.Common.CATEGORIES;
@@ -57,11 +53,25 @@ public class FavoriteActivity extends AppCompatActivity {
         rvItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        rvItems.setAdapter(new CartRecyclerViewAdapter(this, FAVORITE));
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        rvItems.setAdapter(new CartRecyclerViewAdapter(FavoriteActivity.this, FAVORITE));
+//        if (Common.networkConnected(this)) {
+//            String url = Common.URL + "ProductServlet";
+//            List<Product> products = null;
+//            try {
+//                products = (List<Product>) new FavoriteGetAllTask().execute(url).get();
+//            } catch (Exception e) {
+//                Log.e(TAG, e.toString());
+//            }
+//            if (products == null || products.isEmpty()) {
+//                Common.showToast(FavoriteActivity.this, R.string.msg_NoProductsFound);
+//            }
+//        } else {
+//            Common.showToast(this, R.string.msg_NoNetwork);
+//        }
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
