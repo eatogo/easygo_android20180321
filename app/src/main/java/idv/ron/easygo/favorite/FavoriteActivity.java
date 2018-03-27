@@ -53,26 +53,6 @@ public class FavoriteActivity extends AppCompatActivity {
         rvItems.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        rvItems.setAdapter(new CartRecyclerViewAdapter(FavoriteActivity.this, FAVORITE));
-//        if (Common.networkConnected(this)) {
-//            String url = Common.URL + "ProductServlet";
-//            List<Product> products = null;
-//            try {
-//                products = (List<Product>) new FavoriteGetAllTask().execute(url).get();
-//            } catch (Exception e) {
-//                Log.e(TAG, e.toString());
-//            }
-//            if (products == null || products.isEmpty()) {
-//                Common.showToast(FavoriteActivity.this, R.string.msg_NoProductsFound);
-//            }
-//        } else {
-//            Common.showToast(this, R.string.msg_NoNetwork);
-//        }
-//    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -92,62 +72,13 @@ public class FavoriteActivity extends AppCompatActivity {
                     if (order == null) {
                         Common.showToast(FavoriteActivity.this, R.string.msg_FailCreateOrder);
                     } else {
-                        FAVORITE.clear();
-//                        Bundle bundle = new Bundle();
-//                        bundle.putSerializable("order", order);
-//                        Intent intentOrder = new Intent(FavoriteActivity.this,
-//                                OrderActivity.class);
-//                        intentOrder.putExtras(bundle);
-//                        startActivity(intentOrder);
+
                     }
                 }
                 break;
         }
     }
 
-//    public void onCheckoutClick(View view) {
-//        if (CART == null || CART.size() <= 0) {
-//            Common.showToast(this, R.string.cartEmpty);
-//            return;
-//        }
-//        Intent loginIntent = new Intent(this, MemberLoginActivity.class);
-//        startActivityForResult(loginIntent, REQUEST_LOGIN);
-//    }
-
-//    public void onEmptyCartClick(View view) {
-//        if (CART == null || CART.size() <= 0) {
-//            Common.showToast(this, R.string.cartEmpty);
-//            return;
-//        }
-//        String message = getString(R.string.msg_ClearCart);
-//        new AlertDialog.Builder(this)
-//                .setIcon(R.drawable.cart)
-//                .setTitle(R.string.btClearCart)
-//                .setMessage(message)
-//                .setPositiveButton(R.string.text_btConfirm,
-//                        new DialogInterface.OnClickListener() {
-//
-//                            @Override
-//                            public void onClick(DialogInterface dialog,
-//                                                int which) {
-//                                CART.clear();
-//                                showTotal(CART);
-//                                // notifyDataSetChanged()
-//                                // refresh data set
-//                                rvItems.getAdapter().notifyDataSetChanged();
-//                            }
-//                        })
-//
-//                .setNegativeButton(R.string.text_btNo,
-//                        new DialogInterface.OnClickListener() {
-//
-//                            @Override
-//                            public void onClick(DialogInterface dialog,
-//                                                int which) {
-//                                dialog.cancel();
-//                            }
-//                        }).setCancelable(false).show();
-//    }
 
     private class CartRecyclerViewAdapter extends RecyclerView.Adapter<CartRecyclerViewAdapter.ViewHolder> {
         private Context context;
@@ -189,60 +120,16 @@ public class FavoriteActivity extends AppCompatActivity {
             viewHolder.tvName.setText(orderProduct.getFood_name());
             viewHolder.tvPrice.setText(String.valueOf(orderProduct.getFood_price()));
             viewHolder.ivRemove.setImageResource(R.drawable.ic_favorite_black_24dp);
-//            viewHolder.spQty.setSelection(orderProduct.getQuantity() - 1, true);
-//            viewHolder.spQty.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                @Override
-//                public void onItemSelected(AdapterView<?> parent,
-//                                           View view, int position, long id) {
-//                    int quantity = Integer.parseInt(parent
-//                            .getItemAtPosition(position).toString());
-//                    orderProduct.setQuantity(quantity);
-//                    showTotal(FAVORITE);
-//                    Common.showToast(context,
-//                            getString(R.string.msg_NewQty) + " " );
-//                }
-//
-//                @Override
-//                public void onNothingSelected(AdapterView<?> arg0) {
-//                    // TODO Auto-generated method stub
-//
-//                }
-//            });
             viewHolder.ivRemove.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    viewHolder.ivRemove.setImageResource(R.drawable.ic_favorite_border_black_24dp);
-                    Toast.makeText(FavoriteActivity.this,""+orderProduct.getFood_name()+"was remove to favorites", Toast.LENGTH_SHORT).show();
-
-//                    String message = getString(R.string.cartRemove) + "「"
-//                             + "」?";
-//                    new AlertDialog.Builder(context)
-//                            .setIcon(R.drawable.cart)
-//                            .setTitle(R.string.cartRemove)
-//                           .setMessage(message)
-//                            .setPositiveButton(R.string.text_btYes,
-//                                    new DialogInterface.OnClickListener() {
-//                                        @Override
-//                                        public void onClick(
-//                                                DialogInterface dialog,
-//                                                int which) {
+                        @Override
+                        public void onClick(View v) {
+                            viewHolder.ivRemove.setImageResource(R.drawable.ic_favorite_border_black_24dp);
+                            Toast.makeText(FavoriteActivity.this,""+orderProduct.
+                                    getFood_name()+"was remove to favorites", Toast.LENGTH_SHORT).show();
                                             FAVORITE.remove(orderProduct);
-//                                            showTotal(FAVORITE);
                                             CartRecyclerViewAdapter.this
                                                     .notifyDataSetChanged();
                                         }
- //                                   }
-//                                    ).setNegativeButton(R.string.text_btNo,
-//                                    new DialogInterface.OnClickListener() {
-//                                        @Override
-//                                        public void onClick(
-//                                                DialogInterface dialog,
-//                                                int which) {
-//                                            dialog.cancel();
-//                                        }
-//                                    }
-//                                    ).setCancelable(false).show();
-//                }
             });
         }
 
@@ -266,15 +153,6 @@ public class FavoriteActivity extends AppCompatActivity {
         }
     }
 
-
-//    private void showTotal(List<OrderProduct> orderProductList) {
-//        double total = 0;
-//        for (OrderProduct orderProduct : orderProductList) {
-//            total += orderProduct.getPrice() * orderProduct.getQuantity();
-//        }
-//        String text = "Total: " + total;
-//        tvTotal.setText(text);
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
